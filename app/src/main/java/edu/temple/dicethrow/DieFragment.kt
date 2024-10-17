@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import kotlin.random.Random
 
+val DIESIDE = "sidenumber"
+
 class DieFragment : Fragment() {
 
-    val DIESIDE = "sidenumber"
 
     lateinit var dieTextView: TextView
 
@@ -29,7 +30,6 @@ class DieFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_die, container, false).apply {
             dieTextView = findViewById(R.id.dieTextView)
         }
@@ -44,6 +44,8 @@ class DieFragment : Fragment() {
     }
 
     fun throwDie() {
-        dieTextView.text = Random.nextInt(dieSides).toString()
+        dieTextView.text = ((Random.nextInt(dieSides))+1).toString()
     }
-}
+
+
+    }
